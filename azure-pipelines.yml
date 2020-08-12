@@ -23,4 +23,4 @@ steps:
 - task: publishHtml@1
   inputs:
     artifactName: 'index'
-    htmlFilePath: '**/target/site/serenity/index.html'
+    htmlFilePath: '/target/site/serenity/index.html'
