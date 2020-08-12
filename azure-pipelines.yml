@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
 - task: Maven@3
@@ -18,5 +18,12 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/site/serenity/SERENITY-JUNIT-*.xml'
-    goals: 'package'
+    testResultsFiles: '**/failsafe-reports/TEST-*.xml'
+    goals: 'install'
+    
+# Command line
+# Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+- task: CmdLine@2
+  inputs:
+    script: wmic datafile where name="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" get Version /value
+
