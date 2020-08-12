@@ -18,5 +18,6 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/failsafe-reports/TEST-*.xml'
-    goals: ' -DskipTests -P prepare-for-upload package'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+
