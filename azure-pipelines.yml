@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: Maven@3
@@ -18,9 +18,5 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/failsafe-reports/TEST-*.xml'
-    goals: 'install'
-- task: publishHtml@1
-  inputs:
-    artifactName: 'index'
-    htmlFilePath: '**/target/site/serenity/index.html'
+    testResultsFiles: '**/site/serenity/SERENITY-JUNIT-*.xml'
+    goals: ' -DskipTests -P prepare-for-upload package'
